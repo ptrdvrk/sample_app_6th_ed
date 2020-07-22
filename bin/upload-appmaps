@@ -51,6 +51,8 @@ end
 
 if ci?
   args << %w(-e ci)
+  args << '-a'
+  args << '"land-of-apps/Rails Sample App 6th Edition"'
   args << '--no-open'
 end
 
