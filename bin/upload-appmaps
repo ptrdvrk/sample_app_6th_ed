@@ -51,8 +51,6 @@ end
 
 if ci?
   args << %w(-e ci)
-  args << '-a'
-  args << '"land-of-apps/Rails Sample App 6th Edition"'
   args << '--no-open'
 end
 
@@ -65,8 +63,6 @@ if ci_branch == 'master'
 end
 
 args += ARGV unless ARGV.length == 0
-
-args << 'tmp/appmap/minitest'
 
 puts args.join(' ') if debug?
 

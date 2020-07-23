@@ -21,4 +21,4 @@ script:
   - APPMAP=true bundle exec rake test
 
 after_script:
-- env DEBUG=true ./bin/upload-appmaps
+- env DEBUG=true ./bin/upload-appmaps -a '"land-of-apps/Rails Sample App 6th Edition"' tmp/appmap/minitest
