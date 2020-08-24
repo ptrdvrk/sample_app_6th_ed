@@ -1,17 +1,13 @@
-dist: bionic
+# Turn on validation, so we can use import:
+version: ~> 1.0
 
-language: ruby
-rvm:
- - 2.6.3
-
-before_install: >
-  export APPLAND_CLI_DOWNLOAD_URL="$(curl -s https://api.github.com/repos/applandinc/appland-cli/releases/latest \
-    | jq -r '.assets[] | select(.name | contains("Linux")).browser_download_url')" \
-  && curl -sSL "${APPLAND_CLI_DOWNLOAD_URL}" \
-      | sudo tar xz --directory /usr/local/bin appland \
-      && touch ~/.appland
+import:
+- land-of-apps/land-of-apps:travis/ruby-imports.yml
 
 script:
   - yarn add jquery@3.5.1 bootstrap@3.4.1
   - bundle exec rake db:migrate
-  - bundle exec rake test
+  - APPMAP=true bundle exec rake test
+
+after_script:
+- env DEBUG=true ruby ./upload-appmaps tmp/appmap/minitest
