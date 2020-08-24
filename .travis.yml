@@ -18,7 +18,4 @@ before_install: >
 script:
   - yarn add jquery@3.5.1 bootstrap@3.4.1
   - bundle exec rake db:migrate
-  - APPMAP=true bundle exec rake test
-
-after_script:
-- env DEBUG=true ./bin/upload-appmaps -a '"land-of-apps/Rails Sample App 6th Edition"' tmp/appmap/minitest
+  - bundle exec rake test
