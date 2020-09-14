@@ -8,6 +8,3 @@ script:
 - yarn add jquery@3.5.1 bootstrap@3.4.1
 - bundle exec rake db:migrate
 - APPMAP=true bundle exec rails test
-
-after_script:
-- env DEBUG=true ruby ./upload-appmaps tmp/appmap/minitest
