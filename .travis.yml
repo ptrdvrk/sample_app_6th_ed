@@ -7,6 +7,7 @@ rvm:
 branches:
   only:
   - master
+  - eager-loading
 
 script:
   - yarn install
