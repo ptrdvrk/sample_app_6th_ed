@@ -1,0 +1,8 @@
+name: sample_app_6th_ed
+packages:
+- path: app/mailers
+- path: app/models
+- path: app/jobs
+- path: app/controllers
+- path: app/helpers
+- gem: activerecord

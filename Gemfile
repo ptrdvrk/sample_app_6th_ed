@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+group :development, :test do
+  gem 'appmap'
+end
+
 gem 'rails',          '6.1.0'
 gem 'bcrypt',         '3.1.13'
 gem 'bootstrap-sass', '3.4.1'
