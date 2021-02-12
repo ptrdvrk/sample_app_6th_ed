@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/sqlite3-1.4.2"
+		},
+		{
+			"path": "../../../.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-6.1.0"
+		},
+		{
+			"path": "../../../.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionview-6.1.0"
+		},
+		{
+			"path": "../../../.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activemodel-6.1.0"
+		},
+		{
+			"path": "../../appland/appmap-ruby"
+		},
+		{
+			"path": "../../../.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activejob-6.1.0"
+		}
+	],
+	"settings": {}
+}

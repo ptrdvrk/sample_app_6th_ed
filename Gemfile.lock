@@ -1,3 +1,16 @@
+GIT
+  remote: https://github.com/applandinc/appmap-ruby.git
+  revision: 772f53b3547fa220bb9721958e3214c1aa4c0432
+  branch: master
+  specs:
+    appmap (0.41.1)
+      activesupport
+      faraday
+      gli
+      method_source
+      parser
+      rack
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -63,13 +76,6 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     ansi (1.5.0)
-    appmap (0.40.0)
-      activesupport
-      faraday
-      gli
-      method_source
-      parser
-      rack
     ast (2.4.2)
     autoprefixer-rails (10.2.0.0)
       execjs
@@ -119,7 +125,7 @@ GEM
     guard-minitest (2.4.6)
       guard-compat (~> 1.2)
       minitest (>= 3.0)
-    i18n (1.8.7)
+    i18n (1.8.8)
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
@@ -264,7 +270,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  appmap
+  appmap!
   bcrypt (= 3.1.13)
   bootsnap (= 1.4.6)
   bootstrap-sass (= 3.4.1)

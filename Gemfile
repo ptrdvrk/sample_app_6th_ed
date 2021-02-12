@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 group :development, :test do
-  gem 'appmap'
+  gem 'appmap', github: 'applandinc/appmap-ruby', branch: 'master'
 end
 
 gem 'rails',          '6.1.0'
