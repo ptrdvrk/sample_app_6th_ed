@@ -3,11 +3,19 @@ openapi: 3.0.1
 info:
   title: Rails Sample App API
   version: v6
+components:
+  securitySchemes:
+    session_cookie:
+      type: session_id
+      in: cookie
+      name: _sample_app_session
+
+security:
+  - session_cookie: []
 paths:
   "/":
     get:
       description: ''
-      parameters: []
       responses:
         '200':
           content:
@@ -15,7 +23,6 @@ paths:
   "/about":
     get:
       description: ''
-      parameters: []
       responses:
         '200':
           content:
@@ -23,22 +30,22 @@ paths:
   "/account_activations/{id}/edit":
     get:
       description: ''
+      responses:
+        '302':
+          content: {}
       parameters:
       - name: email
         in: query
         schema:
-          type: object
+          type: string
       - name: id
-        in: query
+        in: path
         schema:
-          type: object
-      responses:
-        '302':
-          content: {}
+          type: string
+        required: true
   "/contact":
     get:
       description: ''
-      parameters: []
       responses:
         '200':
           content:
@@ -46,7 +53,6 @@ paths:
   "/help":
     get:
       description: ''
-      parameters: []
       responses:
         '200':
           content:
@@ -54,74 +60,78 @@ paths:
   "/login":
     get:
       description: ''
-      parameters: []
       responses:
         '200':
           content:
             text/html: {}
     post:
       description: ''
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
       parameters:
       - name: session
         in: query
         schema:
           type: object
+  "/logout":
+    delete:
+      description: ''
+      responses:
+        '302':
+          content: {}
+  "/microposts":
+    get:
+      description: ''
+      responses:
+        '200':
+          content:
+            application/json: {}
+    post:
+      description: ''
       responses:
         '200':
           content:
             text/html: {}
         '302':
           content: {}
-  "/logout":
-    delete:
-      description: ''
-      parameters: []
-      responses:
-        '302':
-          content: {}
-  "/microposts":
-    post:
-      description: ''
       parameters:
       - name: micropost
         in: query
         schema:
           type: object
+  "/microposts/{id}":
+    delete:
+      description: ''
+      responses:
+        '302':
+          content: {}
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+  "/password_resets":
+    post:
+      description: ''
       responses:
         '200':
           content:
             text/html: {}
         '302':
           content: {}
-  "/microposts/{id}":
-    delete:
-      description: ''
-      parameters:
-      - name: id
-        in: query
-        schema:
-          type: object
-      responses:
-        '302':
-          content: {}
-  "/password_resets":
-    post:
-      description: ''
       parameters:
       - name: password_reset
         in: query
         schema:
-          type: object
-      responses:
-        '200':
-          content:
-            text/html: {}
-        '302':
-          content: {}
+          type: string
   "/password_resets/new":
     get:
       description: ''
-      parameters: []
       responses:
         '200':
           content:
@@ -129,66 +139,63 @@ paths:
   "/password_resets/{id}":
     patch:
       description: ''
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
       parameters:
       - name: email
         in: query
         schema:
-          type: object
+          type: string
       - name: user
         in: query
         schema:
           type: object
       - name: id
-        in: query
+        in: path
         schema:
-          type: object
+          type: string
+        required: true
+  "/password_resets/{id}/edit":
+    get:
+      description: ''
       responses:
         '200':
           content:
             text/html: {}
         '302':
           content: {}
-  "/password_resets/{id}/edit":
-    get:
-      description: ''
       parameters:
       - name: email
         in: query
         schema:
-          type: object
+          type: string
       - name: id
-        in: query
+        in: path
         schema:
-          type: object
-      responses:
-        '200':
-          content:
-            text/html: {}
-        '302':
-          content: {}
+          type: string
+        required: true
   "/relationships":
     post:
       description: ''
+      responses:
+        '200':
+          content:
+            text/javascript: {}
+        '302':
+          content:
+            text/html: {}
       parameters:
       - name: followed_id
         in: query
         schema:
-          type: object
-      responses:
-        '200':
-          content:
-            text/javascript: {}
-        '302':
-          content:
-            text/html: {}
+          type: string
   "/relationships/{id}":
     delete:
       description: ''
-      parameters:
-      - name: id
-        in: query
-        schema:
-          type: object
       responses:
         '200':
           content:
@@ -196,10 +203,15 @@ paths:
         '302':
           content:
             text/html: {}
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
   "/signup":
     get:
       description: ''
-      parameters: []
       responses:
         '200':
           content:
@@ -207,7 +219,6 @@ paths:
   "/users":
     get:
       description: ''
-      parameters: []
       responses:
         '200':
           content:
@@ -216,98 +227,104 @@ paths:
           content: {}
     post:
       description: ''
-      parameters:
-      - name: user
-        in: query
-        schema:
-          type: object
       responses:
         '200':
           content:
             text/html: {}
         '302':
           content: {}
+      parameters:
+      - name: user
+        in: query
+        schema:
+          type: object
   "/users/{id}":
     delete:
       description: ''
-      parameters:
-      - name: id
-        in: query
-        schema:
-          type: object
       responses:
         '302':
           content: {}
-    get:
-      description: ''
       parameters:
       - name: id
-        in: query
+        in: path
         schema:
-          type: object
+          type: string
+        required: true
+    get:
+      description: ''
       responses:
         '200':
           content:
             text/html: {}
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
     patch:
       description: ''
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
       parameters:
       - name: user
         in: query
         schema:
           type: object
       - name: id
-        in: query
+        in: path
         schema:
-          type: object
-      responses:
-        '200':
-          content:
-            text/html: {}
-        '302':
-          content: {}
+          type: string
+        required: true
   "/users/{id}/edit":
     get:
       description: ''
-      parameters:
-      - name: id
-        in: query
-        schema:
-          type: object
       responses:
         '200':
           content:
             text/html: {}
         '302':
           content: {}
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
   "/users/{id}/followers":
     get:
       description: ''
-      parameters:
-      - name: id
-        in: query
-        schema:
-          type: object
       responses:
         '200':
           content:
             text/html: {}
         '302':
           content: {}
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
   "/users/{id}/following":
     get:
       description: ''
-      parameters:
-      - name: id
-        in: query
-        schema:
-          type: object
       responses:
         '200':
           content:
             text/html: {}
         '302':
           content: {}
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
 servers:
 - url: http://{defaultHost}
   variables:
