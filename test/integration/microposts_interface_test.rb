@@ -17,7 +17,7 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', '/?page=2'  # Correct pagination link
     # Valid submission
     content = "This micropost really ties the room together"
-    image = fixture_file_upload('kitten.jpg', 'image/jpeg')
+    image = fixture_file_upload('test/fixtures/kitten.jpg', 'image/jpeg')
     assert_difference 'Micropost.count', 1 do
       post microposts_path, params: { micropost: { content: content,
                                                    image:   image } }
@@ -27,8 +27,9 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
         follow_redirect!
       end['events'].map { |event| OpenStruct.new(event) }
     sql = events.select(&:sql_query)
-    # Without the eager load optimization, over 200 queries are issued here.
-    assert_operator sql.count, :<, 200
+    # Without the eager-loading optimization, > 100 queries are issued here.
+    assert_operator sql.count, :<, 100
+    puts sql.count
     assert_match content, response.body
     # Delete a post.
     assert_select 'a', 'delete'
