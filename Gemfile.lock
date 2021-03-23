@@ -1,3 +1,16 @@
+GIT
+  remote: https://github.com/applandinc/appmap-ruby.git
+  revision: 29020186cac8b9b1d5e5269ad51c6b70ea5f03b2
+  branch: record-source-location
+  specs:
+    appmap (0.41.2)
+      activesupport
+      faraday
+      gli
+      method_source
+      parser
+      rack
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -65,13 +78,6 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     ansi (1.5.0)
-    appmap (0.41.2)
-      activesupport
-      faraday
-      gli
-      method_source
-      parser
-      rack
     ast (2.4.2)
     autoprefixer-rails (10.2.4.0)
       execjs
@@ -328,7 +334,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_storage_validations (= 0.8.9)
-  appmap
+  appmap!
   aws-sdk-s3 (= 1.87.0)
   bcrypt (= 3.1.13)
   bootsnap (= 1.4.6)

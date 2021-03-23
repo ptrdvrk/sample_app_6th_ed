@@ -1,10 +1,17 @@
 ---
 openapi: 3.0.1
 info:
-  title: Rails Sample App 6th Edition API
+  title: Rails Sample App API
   version: v6
 paths:
   "/microposts":
+    get:
+      summary: lists current user microposts
+      responses:
+        '200':
+          description: ok
+        '401':
+          description: unauthorized
     post:
       summary: creates a micropost
       responses:

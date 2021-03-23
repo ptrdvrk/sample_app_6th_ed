@@ -3,36 +3,30 @@ openapi: 3.0.1
 info:
   title: Rails Sample App API
   version: v6
-components:
-  securitySchemes:
-    session_cookie:
-      type: session_id
-      in: cookie
-      name: _sample_app_session
-
-security:
-  - session_cookie: []
 paths:
   "/":
     get:
-      description: ''
       responses:
         '200':
           content:
             text/html: {}
+          description: OK
+      description: home
   "/about":
     get:
-      description: ''
       responses:
         '200':
           content:
             text/html: {}
+          description: OK
+      description: about
   "/account_activations/{id}/edit":
     get:
-      description: ''
       responses:
         '302':
           content: {}
+          description: Found
+      description: Activate the account of an existing user.
       parameters:
       - name: email
         in: query
@@ -45,70 +39,83 @@ paths:
         required: true
   "/contact":
     get:
-      description: ''
       responses:
         '200':
           content:
             text/html: {}
+          description: OK
+      description: contact
   "/help":
     get:
-      description: ''
       responses:
         '200':
           content:
             text/html: {}
+          description: OK
+      description: help
   "/login":
     get:
-      description: ''
       responses:
         '200':
           content:
             text/html: {}
+          description: OK
+      description: new
     post:
-      description: ''
       responses:
         '200':
           content:
             text/html: {}
+          description: OK
         '302':
           content: {}
-      parameters:
-      - name: session
-        in: query
-        schema:
-          type: object
+          description: Found
+      description: Login a new user.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "./schema/session.yaml"
   "/logout":
     delete:
-      description: ''
       responses:
         '302':
           content: {}
+          description: Found
+      description: destroy
   "/microposts":
     get:
-      description: ''
       responses:
         '200':
           content:
             application/json: {}
+          description: OK
+      description: index
     post:
-      description: ''
       responses:
         '200':
           content:
             text/html: {}
+          description: OK
         '302':
           content: {}
-      parameters:
-      - name: micropost
-        in: query
-        schema:
-          type: object
+          description: Found
+      description: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "./schema/micropost.yaml"
   "/microposts/{id}":
     delete:
-      description: ''
       responses:
         '302':
           content: {}
+          description: Found
+        '303':
+          content: {}
+          description: See Other
+      description: destroy
       parameters:
       - name: id
         in: path
@@ -117,43 +124,45 @@ paths:
         required: true
   "/password_resets":
     post:
-      description: ''
       responses:
         '200':
           content:
             text/html: {}
+          description: OK
         '302':
           content: {}
-      parameters:
-      - name: password_reset
-        in: query
-        schema:
-          type: string
+          description: Found
+      description: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "./schema/password_reset.yaml"
   "/password_resets/new":
     get:
-      description: ''
       responses:
         '200':
           content:
             text/html: {}
+          description: OK
+      description: new
   "/password_resets/{id}":
     patch:
-      description: ''
       responses:
         '200':
           content:
             text/html: {}
+          description: OK
         '302':
           content: {}
+          description: Found
+      description: update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "./schema/email.yaml"
       parameters:
-      - name: email
-        in: query
-        schema:
-          type: string
-      - name: user
-        in: query
-        schema:
-          type: object
       - name: id
         in: path
         schema:
@@ -161,13 +170,15 @@ paths:
         required: true
   "/password_resets/{id}/edit":
     get:
-      description: ''
       responses:
         '200':
           content:
             text/html: {}
+          description: OK
         '302':
           content: {}
+          description: Found
+      description: edit
       parameters:
       - name: email
         in: query
@@ -180,29 +191,33 @@ paths:
         required: true
   "/relationships":
     post:
-      description: ''
       responses:
         '200':
           content:
             text/javascript: {}
+          description: OK
         '302':
           content:
             text/html: {}
-      parameters:
-      - name: followed_id
-        in: query
-        schema:
-          type: string
+          description: Found
+      description: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "./schema/followed_id.yaml"
   "/relationships/{id}":
     delete:
-      description: ''
       responses:
         '200':
           content:
             text/javascript: {}
+          description: OK
         '302':
           content:
             text/html: {}
+          description: Found
+      description: destroy
       parameters:
       - name: id
         in: path
@@ -211,39 +226,45 @@ paths:
         required: true
   "/signup":
     get:
-      description: ''
       responses:
         '200':
           content:
             text/html: {}
+          description: OK
+      description: new
   "/users":
     get:
-      description: ''
       responses:
         '200':
           content:
             text/html: {}
+          description: OK
         '302':
           content: {}
+          description: Found
+      description: index
     post:
-      description: ''
       responses:
         '200':
           content:
             text/html: {}
+          description: OK
         '302':
           content: {}
-      parameters:
-      - name: user
-        in: query
-        schema:
-          type: object
+          description: Found
+      description: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "./schema/user.yaml"
   "/users/{id}":
     delete:
-      description: ''
       responses:
         '302':
           content: {}
+          description: Found
+      description: destroy
       parameters:
       - name: id
         in: path
@@ -251,11 +272,12 @@ paths:
           type: string
         required: true
     get:
-      description: ''
       responses:
         '200':
           content:
             text/html: {}
+          description: OK
+      description: show
       parameters:
       - name: id
         in: path
@@ -263,18 +285,21 @@ paths:
           type: string
         required: true
     patch:
-      description: ''
       responses:
         '200':
           content:
             text/html: {}
+          description: OK
         '302':
           content: {}
+          description: Found
+      description: update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "./schema/user.yaml"
       parameters:
-      - name: user
-        in: query
-        schema:
-          type: object
       - name: id
         in: path
         schema:
@@ -282,13 +307,15 @@ paths:
         required: true
   "/users/{id}/edit":
     get:
-      description: ''
       responses:
         '200':
           content:
             text/html: {}
+          description: OK
         '302':
           content: {}
+          description: Found
+      description: edit
       parameters:
       - name: id
         in: path
@@ -297,13 +324,15 @@ paths:
         required: true
   "/users/{id}/followers":
     get:
-      description: ''
       responses:
         '200':
           content:
             text/html: {}
+          description: OK
         '302':
           content: {}
+          description: Found
+      description: followers
       parameters:
       - name: id
         in: path
@@ -312,13 +341,15 @@ paths:
         required: true
   "/users/{id}/following":
     get:
-      description: ''
       responses:
         '200':
           content:
             text/html: {}
+          description: OK
         '302':
           content: {}
+          description: Found
+      description: following
       parameters:
       - name: id
         in: path

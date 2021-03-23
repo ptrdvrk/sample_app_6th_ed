@@ -22,7 +22,7 @@ group :development, :test do
   gem 'byebug',  '11.1.3', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rswag'
   gem 'rspec-rails'
-  gem 'appmap'
+  gem 'appmap', github: 'applandinc/appmap-ruby', branch: 'record-source-location'
 end
 
 group :development do
