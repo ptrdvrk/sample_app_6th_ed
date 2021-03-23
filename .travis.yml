@@ -4,11 +4,6 @@ language: ruby
 rvm:
  - 2.6.3
 
-before_install:
-  - mkdir -p ~/bin && curl -sSL -o ~/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 && chmod +x ~/bin/jq
-  - export PATH=$PATH:~/bin
-  - jq --version
-
 branches:
   only:
   - master
@@ -18,5 +13,6 @@ script:
   - yarn install
   - bundle exec rake db:migrate
   - APPMAP=true bundle exec rake test
+  - find tmp/appmap
   - jq '[.events[] | select(has("sql_query"))] | length' \
     tmp/appmap/minitest/Microposts_interface_micropost_interface.appmap.json
