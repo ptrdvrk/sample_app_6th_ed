@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
 
+  skip_before_action :verify_authenticity_token, 
+    if: Proc.new { ENV['SWAGGER'] == 'true' }
+
   private
 
     # Confirms a logged-in user.

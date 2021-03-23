@@ -1,0 +1,315 @@
+---
+openapi: 3.0.1
+info:
+  title: Rails Sample App API
+  version: v6
+paths:
+  "/":
+    get:
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            text/html: {}
+  "/about":
+    get:
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            text/html: {}
+  "/account_activations/{id}/edit":
+    get:
+      description: ''
+      parameters:
+      - name: email
+        in: query
+        schema:
+          type: object
+      - name: id
+        in: query
+        schema:
+          type: object
+      responses:
+        '302':
+          content: {}
+  "/contact":
+    get:
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            text/html: {}
+  "/help":
+    get:
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            text/html: {}
+  "/login":
+    get:
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            text/html: {}
+    post:
+      description: ''
+      parameters:
+      - name: session
+        in: query
+        schema:
+          type: object
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
+  "/logout":
+    delete:
+      description: ''
+      parameters: []
+      responses:
+        '302':
+          content: {}
+  "/microposts":
+    post:
+      description: ''
+      parameters:
+      - name: micropost
+        in: query
+        schema:
+          type: object
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
+  "/microposts/{id}":
+    delete:
+      description: ''
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: object
+      responses:
+        '302':
+          content: {}
+  "/password_resets":
+    post:
+      description: ''
+      parameters:
+      - name: password_reset
+        in: query
+        schema:
+          type: object
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
+  "/password_resets/new":
+    get:
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            text/html: {}
+  "/password_resets/{id}":
+    patch:
+      description: ''
+      parameters:
+      - name: email
+        in: query
+        schema:
+          type: object
+      - name: user
+        in: query
+        schema:
+          type: object
+      - name: id
+        in: query
+        schema:
+          type: object
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
+  "/password_resets/{id}/edit":
+    get:
+      description: ''
+      parameters:
+      - name: email
+        in: query
+        schema:
+          type: object
+      - name: id
+        in: query
+        schema:
+          type: object
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
+  "/relationships":
+    post:
+      description: ''
+      parameters:
+      - name: followed_id
+        in: query
+        schema:
+          type: object
+      responses:
+        '200':
+          content:
+            text/javascript: {}
+        '302':
+          content:
+            text/html: {}
+  "/relationships/{id}":
+    delete:
+      description: ''
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: object
+      responses:
+        '200':
+          content:
+            text/javascript: {}
+        '302':
+          content:
+            text/html: {}
+  "/signup":
+    get:
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            text/html: {}
+  "/users":
+    get:
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
+    post:
+      description: ''
+      parameters:
+      - name: user
+        in: query
+        schema:
+          type: object
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
+  "/users/{id}":
+    delete:
+      description: ''
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: object
+      responses:
+        '302':
+          content: {}
+    get:
+      description: ''
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: object
+      responses:
+        '200':
+          content:
+            text/html: {}
+    patch:
+      description: ''
+      parameters:
+      - name: user
+        in: query
+        schema:
+          type: object
+      - name: id
+        in: query
+        schema:
+          type: object
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
+  "/users/{id}/edit":
+    get:
+      description: ''
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: object
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
+  "/users/{id}/followers":
+    get:
+      description: ''
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: object
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
+  "/users/{id}/following":
+    get:
+      description: ''
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: object
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000
