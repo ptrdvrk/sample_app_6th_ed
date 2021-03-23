@@ -13,6 +13,4 @@ script:
   - yarn install
   - bundle exec rake db:migrate
   - APPMAP=true bundle exec rake test
-  - find tmp/appmap
-  - jq '[.events[] | select(has("sql_query"))] | length' \
-    tmp/appmap/minitest/Microposts_interface_micropost_interface.appmap.json
+  - jq '[.events[] | select(has("sql_query"))] | length' tmp/appmap/minitest/Microposts_interface_micropost_interface.appmap.json
