@@ -22,7 +22,7 @@ group :development, :test do
   gem 'byebug',  '11.1.3', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rswag'
   gem 'rspec-rails'
-  gem 'appmap', require: ENV['APPMAP'] == 'true'
+  gem 'appmap'
 end
 
 group :development do
