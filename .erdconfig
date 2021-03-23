@@ -5,7 +5,7 @@ attributes:
   - timestamps
   - primary_keys
 disconnected: true
-filename: tmp/erd
+filename: db/entity_relations
 filetype: pdf
 indirect: false
 inheritance: false

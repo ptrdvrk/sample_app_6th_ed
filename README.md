@@ -127,7 +127,7 @@ $ git checkout sign-up
 First, make sure `graphviz` is installed. Find installation instructions for
 your operating system [here](https://www.graphviz.org/download/). When running
 database migrations, diagrams will automatically be generated and output to
-`tmp/erd.pdf`.
+`db/entity_relations.pdf`.
 
 ## Help with the Rails Tutorial
 
