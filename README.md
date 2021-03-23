@@ -125,21 +125,9 @@ $ git checkout sign-up
 ## Generating ERD diagrams
 
 First, make sure `graphviz` is installed. Find installation instructions for
-your operating system [here](https://www.graphviz.org/download/). Before
-creating the diagrams, make sure your database migrations are up to date.
-
-```
-$ bundle exec rake db:migate
-$ bundle exec rake diagram:erd
-```
-
-The rake task will attempt to open the diagram in Visual Studio Code. Use the
-recommended extension for opening PDF files. If you'd like to skip that step,
-run the `erd` binary directly:
-
-```
-$ bundle exec erd
-```
+your operating system [here](https://www.graphviz.org/download/). When running
+database migrations, diagrams will automatically be generated and output to
+`tmp/erd.pdf`.
 
 ## Help with the Rails Tutorial
 
