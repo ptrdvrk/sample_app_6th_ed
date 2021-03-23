@@ -4,6 +4,11 @@ language: ruby
 rvm:
  - 2.6.3
 
+before_install:
+  - mkdir -p ~/bin && curl -sSL -o ~/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 && chmod +x ~/bin/jq
+  - export PATH=$PATH:~/bin
+  - jq --version
+
 branches:
   only:
   - master
