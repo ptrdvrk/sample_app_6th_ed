@@ -24,4 +24,14 @@ RSpec.describe MicropostsController, type: :request do
       end
     end
   end
+
+  <<~LOGOUT
+  path '/logout' do
+    delete 'logout' do
+      response 302, 'logged out' do
+        run_test!
+      end
+    end
+  end
+  LOGOUT
 end
