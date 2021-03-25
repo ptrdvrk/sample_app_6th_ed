@@ -13,7 +13,7 @@ namespace :appmap do
         defaultHost:
           default: localhost:3000
     TEMPLATE
-    swagger_paths = `node ./node_modules/appmap-swagger/index.js generate --directory tmp/appmap`
+    swagger_paths = `node ./node_modules/@appland/appmap-swagger/index.js generate --directory tmp/appmap`
     template['paths'] = YAML.load(swagger_paths)
     FileUtils.mkdir_p 'swagger/appmap'
     File.write 'swagger/appmap/swagger.yaml', YAML.dump(template)
