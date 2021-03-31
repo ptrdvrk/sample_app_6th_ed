@@ -1,0 +1,332 @@
+---
+openapi: 3.0.1
+info:
+  title: Rails Sample App 6th Edition API
+  version: eager-loading
+paths:
+  "/":
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+          description: OK
+      description: home
+  "/about":
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+          description: OK
+      description: about
+  "/account_activations/{id}/edit":
+    get:
+      responses:
+        '302':
+          content: {}
+          description: Found
+      description: edit
+      parameters:
+      - name: email
+        in: query
+        schema:
+          type: string
+          example: user@example.com
+      - name: id
+        in: path
+        schema:
+          type: string
+          example: invalid token
+        required: true
+  "/contact":
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+          description: OK
+      description: contact
+  "/help":
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+          description: OK
+      description: help
+  "/login":
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+          description: OK
+      description: new
+    post:
+      responses:
+        '200':
+          content:
+            text/html: {}
+          description: OK
+        '302':
+          content: {}
+          description: Found
+      description: create
+  "/logout":
+    delete:
+      responses:
+        '302':
+          content: {}
+          description: Found
+      description: destroy
+  "/microposts":
+    post:
+      responses:
+        '200':
+          content:
+            text/html: {}
+          description: OK
+        '302':
+          content: {}
+          description: Found
+      description: create
+  "/microposts/{id}":
+    delete:
+      responses:
+        '302':
+          content: {}
+          description: Found
+      description: destroy
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+          example: '499495288'
+        required: true
+  "/password_resets":
+    post:
+      responses:
+        '200':
+          content:
+            text/html: {}
+          description: OK
+        '302':
+          content: {}
+          description: Found
+      description: create
+  "/password_resets/new":
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+          description: OK
+      description: new
+  "/password_resets/{id}":
+    patch:
+      responses:
+        '200':
+          content:
+            text/html: {}
+          description: OK
+        '302':
+          content: {}
+          description: Found
+      description: update
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+          example: cLeFDXyQmOhV3f4FmiX6cA
+        required: true
+  "/password_resets/{id}/edit":
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+          description: OK
+        '302':
+          content: {}
+          description: Found
+      description: edit
+      parameters:
+      - name: email
+        in: query
+        schema:
+          type: string
+      - name: id
+        in: path
+        schema:
+          type: string
+          example: cLeFDXyQmOhV3f4FmiX6cA
+        required: true
+  "/relationships":
+    post:
+      responses:
+        '200':
+          content:
+            text/javascript: {}
+          description: OK
+        '302':
+          content:
+            text/html: {}
+          description: Found
+      description: create
+  "/relationships/{id}":
+    delete:
+      responses:
+        '200':
+          content:
+            text/javascript: {}
+          description: OK
+        '302':
+          content:
+            text/html: {}
+          description: Found
+      description: destroy
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+          example: '980190963'
+        required: true
+  "/signup":
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+          description: OK
+      description: new
+  "/users":
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+          description: OK
+        '302':
+          content: {}
+          description: Found
+      description: index
+    post:
+      responses:
+        '200':
+          content:
+            text/html: {}
+          description: OK
+        '302':
+          content: {}
+          description: Found
+      description: create
+  "/users/{id}":
+    delete:
+      responses:
+        '302':
+          content: {}
+          description: Found
+      description: destroy
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+          example: '762146111'
+        required: true
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+          description: OK
+      description: show
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+          example: '950961012'
+        required: true
+    patch:
+      responses:
+        '200':
+          content:
+            text/html: {}
+          description: OK
+        '302':
+          content: {}
+          description: Found
+      description: update
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+          example: '762146111'
+        required: true
+  "/users/{id}/edit":
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+          description: OK
+        '302':
+          content: {}
+          description: Found
+      description: edit
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+          example: '762146111'
+        required: true
+  "/users/{id}/followers":
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+          description: OK
+        '302':
+          content: {}
+          description: Found
+      description: followers
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+          example: '762146111'
+        required: true
+  "/users/{id}/following":
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+          description: OK
+        '302':
+          content: {}
+          description: Found
+      description: following
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+          example: '762146111'
+        required: true
+components:
+  securitySchemes: {}
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000

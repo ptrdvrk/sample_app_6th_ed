@@ -1,3 +1,16 @@
+GIT
+  remote: https://github.com/applandinc/appmap-ruby.git
+  revision: d98396b3eded9f0ce9800fcb763074967e27296a
+  branch: swagger-task
+  specs:
+    appmap (0.43.0)
+      activesupport
+      faraday
+      gli
+      method_source
+      parser
+      rack
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -65,13 +78,6 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     ansi (1.5.0)
-    appmap (0.41.2)
-      activesupport
-      faraday
-      gli
-      method_source
-      parser
-      rack
     ast (2.4.2)
     autoprefixer-rails (10.2.4.0)
       execjs
@@ -142,7 +148,7 @@ GEM
     guard-minitest (2.4.6)
       guard-compat (~> 1.2)
       minitest (>= 3.0)
-    i18n (1.8.9)
+    i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     image_processing (1.9.3)
       mini_magick (>= 4.9.5, < 5)
@@ -233,7 +239,10 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    rdoc (6.3.0)
     regexp_parser (1.8.2)
+    reverse_markdown (2.0.0)
+      nokogiri
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -328,7 +337,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_storage_validations (= 0.8.9)
-  appmap
+  appmap!
   aws-sdk-s3 (= 1.87.0)
   bcrypt (= 3.1.13)
   bootsnap (= 1.4.6)
@@ -349,6 +358,8 @@ DEPENDENCIES
   puma (= 5.0.4)
   rails (= 6.1.0)
   rails-controller-testing (= 1.0.4)
+  rdoc
+  reverse_markdown
   rspec-rails
   rswag
   sass-rails (= 6.0.0)

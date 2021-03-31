@@ -1,0 +1,257 @@
+---
+openapi: 3.0.1
+info:
+  title: Rails Sample App 6th Edition API
+  version: eager-loading
+paths:
+  "/":
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+  "/about":
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+  "/account_activations/{id}/edit":
+    get:
+      responses:
+        '302':
+          content: {}
+      parameters:
+      - name: email
+        in: query
+        schema:
+          type: string
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+  "/contact":
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+  "/help":
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+  "/login":
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+    post:
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
+  "/logout":
+    delete:
+      responses:
+        '302':
+          content: {}
+  "/microposts":
+    post:
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
+  "/microposts/{id}":
+    delete:
+      responses:
+        '302':
+          content: {}
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+  "/password_resets":
+    post:
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
+  "/password_resets/new":
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+  "/password_resets/{id}":
+    patch:
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+  "/password_resets/{id}/edit":
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
+      parameters:
+      - name: email
+        in: query
+        schema:
+          type: string
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+  "/relationships":
+    post:
+      responses:
+        '200':
+          content:
+            text/javascript: {}
+        '302':
+          content:
+            text/html: {}
+  "/relationships/{id}":
+    delete:
+      responses:
+        '200':
+          content:
+            text/javascript: {}
+        '302':
+          content:
+            text/html: {}
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+  "/signup":
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+  "/users":
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
+    post:
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
+  "/users/{id}":
+    delete:
+      responses:
+        '302':
+          content: {}
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+    patch:
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+  "/users/{id}/edit":
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+  "/users/{id}/followers":
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+  "/users/{id}/following":
+    get:
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+components:
+  securitySchemes: {}
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000

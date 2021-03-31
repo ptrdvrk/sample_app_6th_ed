@@ -26,7 +26,7 @@ $ cd sample_app_6th_ed
 Then install the needed packages (while skipping any Ruby gems needed only in production):
 
 ```
-$ yarn add jquery@3.5.1 bootstrap@3.4.1
+$ yarn install
 $ bundle install --without production
 ```
 
