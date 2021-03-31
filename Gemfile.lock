@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/applandinc/appmap-ruby.git
-  revision: d98396b3eded9f0ce9800fcb763074967e27296a
+  revision: 8b86cd3daec6a4cb12823e226d11a924f47758c5
   branch: swagger-task
   specs:
     appmap (0.43.0)
