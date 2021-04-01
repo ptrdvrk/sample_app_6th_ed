@@ -33,6 +33,8 @@ group :development do
   # For appmap:swagger
   gem 'rdoc'
   gem 'reverse_markdown'
+  gem 'rswag-ui'
+  gem 'rswag-api'
 end
 
 group :test do

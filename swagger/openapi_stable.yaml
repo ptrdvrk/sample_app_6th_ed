@@ -56,11 +56,28 @@ paths:
             text/html: {}
         '302':
           content: {}
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                session:
+                  type: object
+                  properties:
+                    email:
+                      type: string
+                    password:
+                      type: string
+                    remember_me:
+                      type: string
   "/logout":
     delete:
       responses:
         '302':
           content: {}
+      requestBody:
+        content: {}
   "/microposts":
     post:
       responses:
@@ -69,11 +86,24 @@ paths:
             text/html: {}
         '302':
           content: {}
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                micropost:
+                  type: object
+                  properties:
+                    content:
+                      type: string
   "/microposts/{id}":
     delete:
       responses:
         '302':
           content: {}
+      requestBody:
+        content: {}
       parameters:
       - name: id
         in: path
@@ -88,6 +118,14 @@ paths:
             text/html: {}
         '302':
           content: {}
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                password_reset:
+                  type: string
   "/password_resets/new":
     get:
       responses:
@@ -102,6 +140,21 @@ paths:
             text/html: {}
         '302':
           content: {}
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                user:
+                  type: object
+                  properties:
+                    password:
+                      type: string
+                    password_confirmation:
+                      type: string
       parameters:
       - name: id
         in: path
@@ -135,6 +188,14 @@ paths:
         '302':
           content:
             text/html: {}
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                followed_id:
+                  type: string
   "/relationships/{id}":
     delete:
       responses:
@@ -144,6 +205,8 @@ paths:
         '302':
           content:
             text/html: {}
+      requestBody:
+        content: {}
       parameters:
       - name: id
         in: path
@@ -171,11 +234,30 @@ paths:
             text/html: {}
         '302':
           content: {}
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    email:
+                      type: string
+                    password:
+                      type: string
+                    password_confirmation:
+                      type: string
   "/users/{id}":
     delete:
       responses:
         '302':
           content: {}
+      requestBody:
+        content: {}
       parameters:
       - name: id
         in: path
@@ -200,6 +282,19 @@ paths:
             text/html: {}
         '302':
           content: {}
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    email:
+                      type: string
       parameters:
       - name: id
         in: path

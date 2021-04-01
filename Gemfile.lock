@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/applandinc/appmap-ruby.git
-  revision: 8b86cd3daec6a4cb12823e226d11a924f47758c5
+  revision: 97cdf5c584e416d5fed3fc43a6c7f3de85862925
   branch: swagger-task
   specs:
     appmap (0.43.0)
@@ -362,6 +362,8 @@ DEPENDENCIES
   reverse_markdown
   rspec-rails
   rswag
+  rswag-api
+  rswag-ui
   sass-rails (= 6.0.0)
   selenium-webdriver (= 3.142.7)
   spring (= 2.1.1)
