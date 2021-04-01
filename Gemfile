@@ -22,7 +22,7 @@ group :development, :test do
   gem 'byebug',  '11.1.3', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rswag'
   gem 'rspec-rails'
-  gem 'appmap', github: 'applandinc/appmap-ruby', branch: 'swagger-task'
+  gem 'appmap', github: 'applandinc/appmap-ruby', branch: 'master'
 end
 
 group :development do
@@ -30,9 +30,7 @@ group :development do
   gem 'listen',                '3.2.1'
   gem 'spring',                '2.1.1'
   gem 'spring-watcher-listen', '2.0.1'
-  # For appmap:swagger
-  gem 'rdoc'
-  gem 'reverse_markdown'
+  gem 'appmap_swagger', github: 'applandinc/appmap_swagger-ruby', branch: 'main'
   gem 'rswag-ui'
   gem 'rswag-api'
 end
