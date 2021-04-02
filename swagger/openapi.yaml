@@ -106,9 +106,6 @@ paths:
           content:
             text/html: {}
           description: OK
-        '302':
-          content: {}
-          description: Found
       description: Create a new micropost.
       requestBody:
         content:
@@ -135,31 +132,9 @@ paths:
       - name: id
         in: path
         schema:
-          type: string
+          type: integer
           example: '499495288'
         required: true
-  "/password_resets":
-    post:
-      responses:
-        '200':
-          content:
-            text/html: {}
-          description: OK
-        '302':
-          content: {}
-          description: Found
-      description: Create a password reset request. An email will be sent with password
-        reset instructions. The email contains a reset token, which the user must
-        later present.
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              properties:
-                password_reset:
-                  type: string
-                  example: "[FILTERED]"
   "/password_resets/new":
     get:
       responses:
