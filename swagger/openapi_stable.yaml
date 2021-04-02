@@ -2,7 +2,7 @@
 openapi: 3.0.1
 info:
   title: Rails Sample App 6th Edition API
-  version: eager-loading
+  version: appmap-swagger-demo-pr
 paths:
   "/":
     get:
@@ -84,6 +84,8 @@ paths:
         '200':
           content:
             text/html: {}
+        '302':
+          content: {}
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -106,8 +108,24 @@ paths:
       - name: id
         in: path
         schema:
-          type: integer
+          type: string
         required: true
+  "/password_resets":
+    post:
+      responses:
+        '200':
+          content:
+            text/html: {}
+        '302':
+          content: {}
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                password_reset:
+                  type: string
   "/password_resets/new":
     get:
       responses:
