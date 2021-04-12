@@ -20,8 +20,12 @@ gem 'bootsnap',                   '1.4.6', require: false
 group :development, :test do
   gem 'sqlite3', '1.4.2'
   gem 'byebug',  '11.1.3', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rswag'
   gem 'rspec-rails'
+
+  gem 'rswag-ui'
+  gem 'rswag-api'
+  gem 'appmap_swagger', github: 'applandinc/appmap_swagger-ruby', branch: 'main'
+  gem 'appmap_depends', github: 'applandinc/appmap_depends-ruby', branch: 'main'
   gem 'appmap', github: 'applandinc/appmap-ruby', branch: 'master'
 end
 
@@ -30,9 +34,6 @@ group :development do
   gem 'listen',                '3.2.1'
   gem 'spring',                '2.1.1'
   gem 'spring-watcher-listen', '2.0.1'
-  gem 'appmap_swagger', github: 'applandinc/appmap_swagger-ruby', branch: 'main'
-  gem 'rswag-ui'
-  gem 'rswag-api'
 end
 
 group :test do
