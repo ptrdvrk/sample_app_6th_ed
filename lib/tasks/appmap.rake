@@ -22,16 +22,20 @@ namespace :appmap do
     AppMap::Depends::ModifiedTask.new.define
 
     desc 'Run minitest tests that are modified relative to the base branch'
-    task :'test:diff' => :'test:prepare' do
+    task :'test:diff' => [ :'test:prepare' ] do
+      raise "Task appmap:test:diff requires RAILS_ENV=test, got #{Rails.env}" unless Rails.env.test?
+
       task = AppMap::Depends::DiffTask.new
       task.base = BASE_BRANCH
       files = task.files
-      if Rake.verbose == true
-        warn 'Out of date tests:'
+      if files.blank?
+        warn "Tests are up to date relative to #{BASE_BRANCH}"
+      else
+        warn "Some tests are out of date relative to #{BASE_BRANCH}:"
         warn files.join(' ')
+        $LOAD_PATH << "test"
+        Rails::TestUnit::Runner.rake_run(files)
       end
-      $: << "test"
-      Rails::TestUnit::Runner.rake_run(files)
     end
   end
 

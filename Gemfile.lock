@@ -13,7 +13,7 @@ GIT
 
 GIT
   remote: https://github.com/applandinc/appmap_depends-ruby.git
-  revision: 9fe76e954f5c79fc44540a3f0c384ccdb532b532
+  revision: 0f187ec1eff04cb681cae2d5013f3ac90d753f63
   branch: main
   specs:
     appmap_depends (0.1.0)
