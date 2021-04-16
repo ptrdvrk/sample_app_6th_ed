@@ -12,15 +12,13 @@ GIT
       rack
 
 GIT
-  remote: https://github.com/applandinc/appmap_swagger-ruby.git
-  revision: 264cbc4a858fb0284be1127921a71a3bdd368640
+  remote: https://github.com/applandinc/appmap_depends-ruby.git
+  revision: 57d5cda82ad05456a85db8b4bd578f7d3cca5b90
   branch: main
   specs:
-    appmap_swagger (0.1.0)
+    appmap_depends (0.1.0)
       activesupport
       rake
-      rdoc
-      reverse_markdown
 
 GEM
   remote: https://rubygems.org/
@@ -167,8 +165,6 @@ GEM
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
     jmespath (1.4.0)
-    json-schema (2.8.1)
-      addressable (>= 2.4)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -250,10 +246,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    rdoc (6.3.0)
     regexp_parser (1.8.2)
-    reverse_markdown (2.0.0)
-      nokogiri
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -271,19 +264,6 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.2)
-    rswag (2.4.0)
-      rswag-api (= 2.4.0)
-      rswag-specs (= 2.4.0)
-      rswag-ui (= 2.4.0)
-    rswag-api (2.4.0)
-      railties (>= 3.1, < 7.0)
-    rswag-specs (2.4.0)
-      activesupport (>= 3.1, < 7.0)
-      json-schema (~> 2.2)
-      railties (>= 3.1, < 7.0)
-    rswag-ui (2.4.0)
-      actionpack (>= 3.1, < 7.0)
-      railties (>= 3.1, < 7.0)
     ruby-progressbar (1.11.0)
     ruby-vips (2.0.17)
       ffi (~> 1.9)
@@ -349,7 +329,7 @@ PLATFORMS
 DEPENDENCIES
   active_storage_validations (= 0.8.9)
   appmap!
-  appmap_swagger!
+  appmap_depends!
   aws-sdk-s3 (= 1.87.0)
   bcrypt (= 3.1.13)
   bootsnap (= 1.4.6)
@@ -371,9 +351,6 @@ DEPENDENCIES
   rails (= 6.1.0)
   rails-controller-testing (= 1.0.4)
   rspec-rails
-  rswag
-  rswag-api
-  rswag-ui
   sass-rails (= 6.0.0)
   selenium-webdriver (= 3.142.7)
   spring (= 2.1.1)
