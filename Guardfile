@@ -1,7 +1,11 @@
 require 'active_support/core_ext/string'
 require 'appmap_depends'
 
-guard :app_map_depends, verbose: true do
+def guard_debug?
+  ENV['GUARD_DEBUG'] == true
+end
+
+guard :app_map_depends, verbose: guard_debug? do
   logger level:       :debug
 
   watch(%r{app/*})
