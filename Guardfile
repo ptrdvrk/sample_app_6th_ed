@@ -8,7 +8,7 @@ end
 guard :app_map_depends, verbose: guard_debug? do
   logger level:       :debug
 
-  watch(%r{app/*})
+  watch(%r{^app/*})
 end
 
 # Defines the matching rules for Guard.
