@@ -1,5 +1,0 @@
-properties:
-  content:
-    type: string
-  image:
-    type: binary

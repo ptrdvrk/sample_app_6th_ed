@@ -1,21 +1,15 @@
 namespace :appmap do
-  desc 'Generate Swagger docs from AppMaps'
-  task :swagger do
-    template = YAML.load <<~TEMPLATE
-    openapi: 3.0.1
-    info:
-      title: Rails Sample App API
-      version: v6
-    paths:
-    servers:
-    - url: http://{defaultHost}
-      variables:
-        defaultHost:
-          default: localhost:3000
-    TEMPLATE
-    swagger_paths = `node ./node_modules/@appland/appmap-swagger/index.js generate --directory tmp/appmap`
-    template['paths'] = YAML.load(swagger_paths)
-    FileUtils.mkdir_p 'swagger/appmap'
-    File.write 'swagger/appmap/swagger.yaml', YAML.dump(template)
+  if %w[test development].member?(Rails.env)
+    # In a Rails app, add a dependency on the :environment task.
+    AppMap::Swagger::RakeTask.new(:swagger, [] => [ :environment ]).tap do |task|
+      task.project_name = 'Rails Sample App API'
+      task.project_version = 'v6'
+      task.output_dir = 'swagger/appmap'
+    end
+
+    AppMap::Swagger::RakeDiffTask.new(:'swagger:diff', [ :base, :swagger_file ]).tap do |task|
+      task.base = 'remotes/origin/master'
+      task.swagger_file = 'swagger/appmap/openapi_stable.yaml'
+    end
   end
 end

@@ -78,6 +78,12 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     ansi (1.5.0)
+    appmap_swagger (0.2.0)
+      activesupport
+      hashdiff
+      rake
+      rdoc
+      reverse_markdown
     ast (2.4.2)
     autoprefixer-rails (10.2.4.0)
       execjs
@@ -148,6 +154,7 @@ GEM
     guard-minitest (2.4.6)
       guard-compat (~> 1.2)
       minitest (>= 3.0)
+    hashdiff (1.0.1)
     i18n (1.8.9)
       concurrent-ruby (~> 1.0)
     image_processing (1.9.3)
@@ -239,7 +246,10 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    rdoc (6.3.0)
     regexp_parser (1.8.2)
+    reverse_markdown (2.0.0)
+      nokogiri
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -335,6 +345,7 @@ PLATFORMS
 DEPENDENCIES
   active_storage_validations (= 0.8.9)
   appmap!
+  appmap_swagger
   aws-sdk-s3 (= 1.87.0)
   bcrypt (= 3.1.13)
   bootsnap (= 1.4.6)

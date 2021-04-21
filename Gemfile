@@ -23,6 +23,7 @@ group :development, :test do
   gem 'rswag'
   gem 'rspec-rails'
   gem 'appmap', github: 'applandinc/appmap-ruby', branch: 'record-source-location'
+  gem 'appmap_swagger'
 end
 
 group :development do
