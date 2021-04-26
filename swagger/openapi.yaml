@@ -209,7 +209,7 @@ paths:
         in: path
         schema:
           type: string
-          example: 71ipx-1p2E6yoaKfpGl09w
+          example: QfbjuaBu0DVE-sbNl39Chw
         required: true
   "/password_resets/{id}/edit":
     get:
@@ -231,7 +231,7 @@ paths:
         in: path
         schema:
           type: string
-          example: 71ipx-1p2E6yoaKfpGl09w
+          example: QfbjuaBu0DVE-sbNl39Chw
         required: true
   "/relationships":
     post:
@@ -345,6 +345,9 @@ paths:
           content:
             text/html: {}
           description: OK
+        '302':
+          content: {}
+          description: Found
       description: show
       parameters:
       - name: id

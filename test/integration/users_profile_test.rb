@@ -17,11 +17,11 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
 
   test "profile display while anonyomus" do
     get user_path(@user)
-    assert_equal 200, response.status
-    # assert_match URI.parse(response.location).path, "/login"
+    # assert_equal 200, response.status
+    assert_equal 302, response.status
+    assert_match URI.parse(response.location).path, "/login"
   end
 
-  <<~LOGGED_IN_USER
   test "profile display while logged in as the user" do
     login_as @user
 
@@ -37,15 +37,4 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
       assert_match micropost.content, response.body
     end
   end
-  LOGGED_IN_USER
-
-  <<~OTHER_USER
-  test "profile display while logged in as someone else" do
-    login_as @other_user
-
-    get user_path(@user)
-    assert_equal 302, response.status
-    assert_match URI.parse(response.location).path, "/login"
-  end
-  OTHER_USER
 end

@@ -276,6 +276,8 @@ paths:
         '200':
           content:
             text/html: {}
+        '302':
+          content: {}
       parameters:
       - name: id
         in: path
