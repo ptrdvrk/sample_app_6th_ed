@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/applandinc/appmap-ruby.git
-  revision: 6c2f4381c98ce77dcd795c3fde516c3acd28bae2
+  revision: e4dd2f0b142f8940a59e3fafa390949bbfb4bc83
   branch: depends-task
   specs:
     appmap (0.60.0)
